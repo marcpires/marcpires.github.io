@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://github.com/marcpires/marcpires.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://www.marcpires.dev/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://github.com/marcpires/marcpires.github.io/</loc>
+<loc>https://www.marcpires.dev/</loc>
 </url>
 <url>
-<loc>https://github.com/marcpires/marcpires.github.io/gitops-e-certificacoes-argocd/</loc>
-<lastmod>2025-06-03T12:48:20-03:00</lastmod>
+<loc>https://www.marcpires.dev/automatic-changelog-with-git/</loc>
+<lastmod>2025-06-04T08:21:59-03:00</lastmod>
 <image:image>
-<image:loc>https://github.com/marcpires/marcpires.github.io/media/posts/3/argo-2.webp</image:loc>
-<image:title><![CDATA[ArgoCD]]></image:title>
+<image:loc>https://www.marcpires.dev/media/posts/1/ai-site-helping-with-software-production.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://www.marcpires.dev/dicas/</loc>
+<lastmod>2025-06-03T15:05:26-03:00</lastmod>
+</url>
+<url>
+<loc>https://www.marcpires.dev/dicas/kubernetes/</loc>
+</url>
+<url>
+<loc>https://www.marcpires.dev/gitops-e-certificacoes-argocd-2/</loc>
+<lastmod>2025-06-03T15:24:35-03:00</lastmod>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/5/argo.webp</image:loc>
+<image:title><![CDATA[ArgoCD logo]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://www.marcpires.dev/mlops-do-experimento-a-producao/</loc>
+<lastmod>2025-06-03T15:22:31-03:00</lastmod>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/4/abstract-background-with-low-poly-design.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/4/gallery/imagem_1-thumbnail.jpeg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/4/gallery/WhatsApp-Image-2025-06-03-at-08.00.56-thumbnail.jpeg</image:loc>
+<image:title><![CDATA[]]></image:title>
 </image:image>
 </url>
 </urlset>
