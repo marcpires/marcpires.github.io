@@ -5,14 +5,6 @@
 <loc>https://www.marcpires.dev/</loc>
 </url>
 <url>
-<loc>https://www.marcpires.dev/automatic-changelog-with-git/</loc>
-<lastmod>2025-06-04T08:21:59-03:00</lastmod>
-<image:image>
-<image:loc>https://www.marcpires.dev/media/posts/1/ai-site-helping-with-software-production.jpg</image:loc>
-<image:title><![CDATA[]]></image:title>
-</image:image>
-</url>
-<url>
 <loc>https://www.marcpires.dev/dicas/</loc>
 <lastmod>2025-06-03T15:05:26-03:00</lastmod>
 </url>
@@ -21,15 +13,19 @@
 </url>
 <url>
 <loc>https://www.marcpires.dev/gitops-e-certificacoes-argocd-2/</loc>
-<lastmod>2025-06-03T15:24:35-03:00</lastmod>
+<lastmod>2025-06-04T10:54:03-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/5/argo.webp</image:loc>
 <image:title><![CDATA[ArgoCD logo]]></image:title>
 </image:image>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/5/what-is-gitops.png</image:loc>
+<image:title><![CDATA[GitOps]]></image:title>
+</image:image>
 </url>
 <url>
 <loc>https://www.marcpires.dev/mlops-do-experimento-a-producao/</loc>
-<lastmod>2025-06-03T15:22:31-03:00</lastmod>
+<lastmod>2025-06-04T10:32:45-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/4/abstract-background-with-low-poly-design.jpg</image:loc>
 <image:title><![CDATA[]]></image:title>
