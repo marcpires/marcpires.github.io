@@ -13,10 +13,14 @@
 </url>
 <url>
 <loc>https://www.marcpires.dev/gitops-e-certificacoes-argocd-2/</loc>
-<lastmod>2025-06-04T10:54:03-03:00</lastmod>
+<lastmod>2025-06-04T11:04:57-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/5/argo.webp</image:loc>
 <image:title><![CDATA[ArgoCD logo]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/5/push-deployment.png</image:loc>
+<image:title><![CDATA[Push deployment]]></image:title>
 </image:image>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/5/what-is-gitops.png</image:loc>

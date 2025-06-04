@@ -3,7 +3,7 @@
     <title>Tech Bites</title>
     <link href="https://www.marcpires.dev/feed.xml" rel="self" />
     <link href="https://www.marcpires.dev" />
-    <updated>2025-06-04T10:54:03-03:00</updated>
+    <updated>2025-06-04T11:04:57-03:00</updated>
     <author>
         <name>Marc Pires</name>
     </author>
@@ -57,7 +57,7 @@
 <p>O cluster é totalmente alheio da origem destes deployments, o que significa por exemplo que caso precise testar uma aplicação em um determinado <em>namespace</em>, mas o seu sistema de CI/CD só aplicar os manifestos quando os commits estiverem na main por exemplo, o cluster não possui formas de saber que essa aplicação deveria estar presente.</p>
 </li>
 <li>
-<p><strong>Nota</strong>: O item 3 pode ser facilmente remediado tendo um job que executa a aplicação dos manifestos sempre que uma branch seja criada. Mas isso ainda não é GitOps<br><br>imagem</p>
+<figure class="post__image"><strong>Nota</strong>: O item 3 pode ser facilmente remediado tendo um job que executa a aplicação dos manifestos sempre que uma branch seja criada. Mas isso ainda não é GitOps<br><br><img loading="lazy"  src="https://www.marcpires.dev/media/posts/5/push-deployment.png" alt="Push deployment" width="1536" height="1024" sizes="(max-width: 48em) 100vw, 768px" srcset="https://www.marcpires.dev/media/posts/5/responsive/push-deployment-xs.png 300w ,https://www.marcpires.dev/media/posts/5/responsive/push-deployment-sm.png 480w ,https://www.marcpires.dev/media/posts/5/responsive/push-deployment-md.png 768w ,https://www.marcpires.dev/media/posts/5/responsive/push-deployment-lg.png 1024w ,https://www.marcpires.dev/media/posts/5/responsive/push-deployment-xl.png 1360w ,https://www.marcpires.dev/media/posts/5/responsive/push-deployment-2xl.png 1600w"></figure>
 <h2><a name="pull-deployments" href="https://dev.to/marcpires/gitops-e-certificacoes-argocd-2dgd#pull-deployments"></a>Pull Deployments</h2>
 <p>Já quando adotamos <em>GitOps</em>, essa inteligência está no próprio cluster. Por si só o _Kubernetes _não sabe como realizar esta operação, por isso precisamos ter um _Controller _no cluster que adicione essa capacidade. E é isso que as ferramentas como o ArgoCD - e o Flux - fazem. Agora temos o seguinte cenário:</p>
 <ol>
