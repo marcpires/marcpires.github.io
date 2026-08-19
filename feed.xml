@@ -3,19 +3,116 @@
     <title>Tech Bites</title>
     <link href="https://www.marcpires.dev/feed.xml" rel="self" />
     <link href="https://www.marcpires.dev" />
-    <updated>2026-04-24T10:49:35-03:00</updated>
+    <updated>2026-08-19T12:26:31-03:00</updated>
     <author>
         <name>Marc Pires</name>
     </author>
     <id>https://www.marcpires.dev</id>
 
     <entry>
+        <title>AWS EKS com eksctl e Floci</title>
+        <author>
+            <name>Marc Pires</name>
+        </author>
+        <link href="https://www.marcpires.dev/aws-eks-com-eksctl-e-floci/"/>
+        <id>https://www.marcpires.dev/aws-eks-com-eksctl-e-floci/</id>
+        <media:content url="https://www.marcpires.dev/media/posts/5/Screenshot_2026-08-19_11-59-25.png" medium="image" />
+            <category term="Kubernetes"/>
+
+        <updated>2026-07-21T08:40:34-03:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://www.marcpires.dev/media/posts/5/Screenshot_2026-08-19_11-59-25.png" alt="Floci em execucao" />
+                    Essa é uma serie de 4 artigos sobre como emular um cluster EKS localmente em um laboratorio de estudos com o Floci, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o Localstack Nos últimos anos vimos um crescimento do interesse&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://www.marcpires.dev/media/posts/5/Screenshot_2026-08-19_11-59-25.png" class="type:primaryImage" alt="Floci em execucao" /></p>
+                <p>Essa é uma serie de 4 artigos sobre como emular um cluster <strong>EKS</strong> localmente em um laboratorio de estudos com o <a href="https://floci.io/floci/" target="_blank" rel="noopener noreferrer">Floci</a>, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o <em>Localstack</em></p>
+<h2>Alguns motivos para usar o Floci</h2>
+<p>Nos últimos anos vimos um crescimento do interesse na montagem de homelabs, SRE, engenheiros de plataforma e desenvolvedores têm recorrido a esses laboratórios como forma de praticar novas técnicas e avaliar ferramentas com um custo muito menor do que executar esses serviços em nuvens públicas.</p>
+<p>Porem, ao estudarmos para uma certificação por exemplo, precisamos realizar laboratórios com os diversos serviços dos provedores de nuvem públicas e esses experimentos no geral terão um custo. O pode ser um impedimento, dependo dos resursos utilzados nos experimentos.</p>
+<p>E neste cenário que ferramentas como o <a href="https://www.marcpires.dev" target="_blank" rel="noopener">Floci</a> brilham, pois ele possibilita que executemos localmente os principais serviços destes provedores, vamos olhar mais de perto que o Floci nos oferece  e preparar nosso ambiente para os experimentos com o EKS.</p>
+<h2>O que o Floci oferece ?</h2>
+<p>O Floci emula 68 serviços da AWS como <em>RDS</em>, <em>EKS</em>, <em>Route 53 </em>entre outros e não possui limitações como por exemplo a necessidade de se realizar logins ou necessitarmos de assinaturas ou chaves para sua utilização. Outro pontos interessante e que para diversos serviços como Lambda ele executa containers utilizando os runtimes reais da AWS e não um mock da resposta do serviço.</p>
+<h2>Preparando o ambiente</h2>
+<p>Para preparar o nosso ambiente, precisaremos de:</p>
+<p>- Um container runtime (<a href="https://docs.docker.com/engine/install/">Docker</a>, <a href="https://podman.io/docs/installation">Podman</a>)<br>- <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS cli</a><br>- <a href="https://docs.aws.amazon.com/eks/latest/eksctl/installation.html">eksctl</a></p>
+<p>Depois de instalarmos as ferramenta acima, criaremos um docker-compose.yaml com o conteúdo abaixo e iniciaremos o <em>Floci</em></p>
+<pre class="language-yaml"><code>services:
+  floci:
+    image: floci/floci:latest
+    ports:
+      - "4566:4566"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+    environment:
+      FLOCI_STORAGE_MODE: hybrid
+      FLOCI_HOSTNAME: aws-mock 
+</code></pre>
+<p>Apos iniciarmos o container do Floci, teremos um endpoint sendo executado na porta <em><strong>4566</strong></em></p>
+<figure class="post__image"> <img loading="lazy" src="https://www.marcpires.dev/media/posts/5/Screenshot_2026-07-21_10-03-09.png" alt="" width="1571" height="449" sizes="(max-width: 48em) 100vw, 768px" srcset="https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-xs.png 300w ,https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-sm.png 480w ,https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-md.png 768w ,https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-lg.png 1024w ,https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-xl.png 1360w ,https://www.marcpires.dev/media/posts/5/responsive/Screenshot_2026-07-21_10-03-09-2xl.png 1600w">
+<figcaption>Floci em execucao</figcaption>
+</figure>
+<h2>Configurando um novo perfil na AWS cli</h2>
+<p>Com o <em>Floci</em> rodando corretamente, precisamos configurar um novo perfil na AWS cli para utilização em nossos laboratórios, para isso executaremos o comando a seguir:</p>
+<blockquote>
+<p><strong><span style="color: #169179;">❯</span></strong> aws configure --profile aws-homelab<br>AWS Access Key ID [None]: test<br>AWS Secret Access Key [None]: test<br>Default region name [None]: us-east-1<br>Default output format [None]: json</p>
+</blockquote>
+<p>Uma vez configurado nosso perfil, criaremos um bucket S3 para verificar nossa configuração.</p>
+<blockquote>
+<p><strong><span style="color: #169179;">❯</span></strong> aws s3 mb s3://terraform-state --profile aws-homelab --endpoint-url http://localhost:4566<br>make_bucket: terraform-state</p>
+</blockquote>
+<p>Note que neste momento temos que passar a url do floci através do parâmetro <em>endpoint-url, </em>adicione o endpoint do <em>Floci</em> na configuração do perfil executando o seguinte comando:</p>
+<blockquote>
+<p><strong><span style="color: #169179;">❯</span></strong> aws configure set endpoint-url http://localhost:4566 --profile aws-homelab<br><strong><span style="color: #169179;">❯</span></strong> aws configure get endpoint-url --profile aws-homelab</p>
+</blockquote>
+<h2>EKS com eksctl</h2>
+<p>Com o ambiente configurado, iremos utilizar o eksctl para criar nosso cluster Kubernetes. </p>
+<p>O eksctl facilita a tarefa de gerenciar de clusters em escala, ja que automatiza e abstrai muitas das tarefas necessárias na configuracao dos diversos serviços necessários por um cluster <em>EKS</em> como <em>VPC</em>,<em> node groups </em>e<em> security groups </em>através de uma abordagem declarativa como exemplificado abaixo:</p>
+<pre class="language-yaml"><code>apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+   name: basic-cluster
+   region: us-west-2
+
+nodeGroups:
+   - name: ng-1
+     instanceType: m5.large
+     desiredCapacity: 2
+     minSize: 1
+     maxSize: 3
+     ssh:
+        allow: false</code></pre>
+<p class="msg msg--info msg--highlight "><svg class="li li-info" width="24px" height="24px" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24"><g><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></g></svg> Durante nosso laboratório recoremos regularmente a <a href=" https://schema.eksctl.io/" target="_blank" rel="noopener noreferrer">documentação do ClusterConfig</a></p>
+<h3>Mock x Real mode</h3>
+<p>Um dos recursos mais interessantes do <i>Floci</i> são os modos real - que criara um cluster k3s e expõe a porta (<em>6500-65999</em>) do API server, já no modo <em>mock</em> ele retorna apenas as respostas da API do <i>EKS</i> sem criar um cluster, esse modo e interessante por exemplo em um CI ou outras atividades em que só precisemos das respostas de API.</p>
+<p>No nosso laboratório utilizaremos o modo real, que o padrão, uma vez que além de criar e gerenciar o cluster via <em>eksctl, </em>iremos posteriormente executar algumas cargas de trabalho no cluster criado.</p>
+<h3>Dry run</h3>
+<p>A configuração acima foi gerada manualmente a fim demonstrar a especificação do <em>ClusterConfig</em>, mas podemos gerar nosso manifesto diretamente pelo <em>eksctl.</em></p>
+<blockquote>
+<p>$ eksctl create cluster --dry-run --profile aws-homelab<br>Error: cannot use --profile with --dry-run as this option cannot be represented in ClusterConfig: set the AWS_PROFILE environment variable instead</p>
+</blockquote>
+<p> Executar o comando acima para gerar nossa configuração utilizando nosso perfil para o Floci como visto acima, gerara um erro, pois não existe na <a href="https://schema.eksctl.io/" target="_blank" rel="noopener">spec</a> do CloudConfig uma propriedade para indicarmos o perfil AWS a ser utilizado, sendo necessário passar nosso perfile via variavel de ambiente.</p>
+<blockquote>
+<p>$ AWS_PROFILE=aws-homelab eksctl create cluster --dry-run<br>Error: checking AWS STS access – cannot get role ARN for current session: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 1ffdbb8c-dfca-444c-9637-82ac382eebe1, api error InvalidClientTokenId: The security token included in the request is invalid.</p>
+</blockquote>
+<h3><strong>⚠️ Outch!!, got a 403</strong></h3>
+<p>Apos executar o dry-run, chegamos no ponto onde a diversão começa. Durante o processo, tive alguns problemas devido algumas limitações do emulador e detalharei os desafios encontrados e como foram resolvidos.</p>
+<p>Fiquem ligados nas próximas postagens. 📢</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
         <title>Gerenciando segredos no K8s com Vault + ESO</title>
         <author>
             <name>Marc Pires</name>
         </author>
-        <link href="https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso.html"/>
-        <id>https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso.html</id>
+        <link href="https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso/"/>
+        <id>https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso/</id>
         <media:content url="https://www.marcpires.dev/media/posts/4/background.png" medium="image" />
             <category term="Kubernetes"/>
             <category term="Hashicorp Vault"/>
@@ -45,8 +142,8 @@
         <author>
             <name>Marc Pires</name>
         </author>
-        <link href="https://www.marcpires.dev/go-workshop.html"/>
-        <id>https://www.marcpires.dev/go-workshop.html</id>
+        <link href="https://www.marcpires.dev/go-workshop/"/>
+        <id>https://www.marcpires.dev/go-workshop/</id>
         <media:content url="https://www.marcpires.dev/media/posts/3/lhc-go-workshop-2xl.png" medium="image" />
             <category term="GOLANG"/>
 
@@ -97,8 +194,8 @@
         <author>
             <name>Marc Pires</name>
         </author>
-        <link href="https://www.marcpires.dev/gitops-e-certificacoes-argocd.html"/>
-        <id>https://www.marcpires.dev/gitops-e-certificacoes-argocd.html</id>
+        <link href="https://www.marcpires.dev/gitops-e-certificacoes-argocd/"/>
+        <id>https://www.marcpires.dev/gitops-e-certificacoes-argocd/</id>
         <media:content url="https://www.marcpires.dev/media/posts/2/argo-2xl.webp" medium="image" />
             <category term="Kubernetes"/>
             <category term="GOLANG"/>
@@ -218,8 +315,8 @@
         <author>
             <name>Marc Pires</name>
         </author>
-        <link href="https://www.marcpires.dev/mlops-do-experimento-a-producao.html"/>
-        <id>https://www.marcpires.dev/mlops-do-experimento-a-producao.html</id>
+        <link href="https://www.marcpires.dev/mlops-do-experimento-a-producao/"/>
+        <id>https://www.marcpires.dev/mlops-do-experimento-a-producao/</id>
         <media:content url="https://www.marcpires.dev/media/posts/1/abstract-background-with-low-poly-design-2xl.jpg" medium="image" />
             <category term="Kubernetes"/>
 

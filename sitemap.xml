@@ -5,8 +5,20 @@
 <loc>https://www.marcpires.dev/</loc>
 </url>
 <url>
-<loc>https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso.html</loc>
-<lastmod>2026-04-24T10:49:35-03:00</lastmod>
+<loc>https://www.marcpires.dev/aws-eks-com-eksctl-e-floci/</loc>
+<lastmod>2026-08-19T12:26:31-03:00</lastmod>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/5/Screenshot_2026-08-19_11-59-25.png</image:loc>
+<image:title><![CDATA[Floci em execucao]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://www.marcpires.dev/media/posts/5/Screenshot_2026-07-21_10-03-09.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://www.marcpires.dev/gerenciando-segredos-no-k8s-com-vault-eso/</loc>
+<lastmod>2026-04-24T21:23:16-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/4/background.png</image:loc>
 <image:title><![CDATA[External Secrets Operator]]></image:title>
@@ -17,7 +29,7 @@
 </image:image>
 </url>
 <url>
-<loc>https://www.marcpires.dev/gitops-e-certificacoes-argocd.html</loc>
+<loc>https://www.marcpires.dev/gitops-e-certificacoes-argocd/</loc>
 <lastmod>2026-04-24T07:21:12-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/2/argo-2xl.webp</image:loc>
@@ -33,7 +45,7 @@
 </image:image>
 </url>
 <url>
-<loc>https://www.marcpires.dev/go-workshop.html</loc>
+<loc>https://www.marcpires.dev/go-workshop/</loc>
 <lastmod>2026-04-24T07:20:32-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/3/lhc-go-workshop-2xl.png</image:loc>
@@ -53,7 +65,7 @@
 </image:image>
 </url>
 <url>
-<loc>https://www.marcpires.dev/mlops-do-experimento-a-producao.html</loc>
+<loc>https://www.marcpires.dev/mlops-do-experimento-a-producao/</loc>
 <lastmod>2026-04-24T07:20:02-03:00</lastmod>
 <image:image>
 <image:loc>https://www.marcpires.dev/media/posts/1/abstract-background-with-low-poly-design-2xl.jpg</image:loc>
