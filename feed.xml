@@ -3,7 +3,7 @@
     <title>Tech Bites</title>
     <link href="https://www.marcpires.dev/feed.xml" rel="self" />
     <link href="https://www.marcpires.dev" />
-    <updated>2026-08-19T12:29:52-03:00</updated>
+    <updated>2026-08-22T17:36:40-03:00</updated>
     <author>
         <name>Marc Pires</name>
     </author>
@@ -23,17 +23,17 @@
             <summary type="html">
                 <![CDATA[
                         <img src="https://www.marcpires.dev/media/posts/5/flocieks.jpg" alt="Floci em execucao" />
-                    Essa é uma serie de 4 artigos sobre como emular um cluster EKS localmente em um laboratorio de estudos com o Floci, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o Localstack Nos últimos anos vimos um crescimento do interesse&hellip;
+                    Essa é uma série de 4 artigos sobre como emular um cluster EKS localmente em um laboratorio de estudos com o Floci, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o Localstack Nos últimos anos vimos um crescimento do interesse&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <p><img src="https://www.marcpires.dev/media/posts/5/flocieks.jpg" class="type:primaryImage" alt="Floci em execucao" /></p>
-                <p>Essa é uma serie de 4 artigos sobre como emular um cluster <strong>EKS</strong> localmente em um laboratorio de estudos com o <a href="https://floci.io/floci/" target="_blank" rel="noopener noreferrer">Floci</a>, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o <em>Localstack</em></p>
+                <p>Essa é uma série de 4 artigos sobre como emular um cluster <strong>EKS</strong> localmente em um laboratorio de estudos com o <a href="https://floci.io/floci/" target="_blank" rel="noopener noreferrer">Floci</a>, suas vantagens, limitações, problemas enfrentados na implementação deste laboratório e uma comparação com o <em>Localstack</em></p>
 <h2>Alguns motivos para usar o Floci</h2>
 <p>Nos últimos anos vimos um crescimento do interesse na montagem de homelabs, SRE, engenheiros de plataforma e desenvolvedores têm recorrido a esses laboratórios como forma de praticar novas técnicas e avaliar ferramentas com um custo muito menor do que executar esses serviços em nuvens públicas.</p>
-<p>Porem, ao estudarmos para uma certificação por exemplo, precisamos realizar laboratórios com os diversos serviços dos provedores de nuvem públicas e esses experimentos no geral terão um custo. O pode ser um impedimento, dependo dos resursos utilzados nos experimentos.</p>
-<p>E neste cenário que ferramentas como o <a href="https://www.marcpires.dev" target="_blank" rel="noopener">Floci</a> brilham, pois ele possibilita que executemos localmente os principais serviços destes provedores, vamos olhar mais de perto que o Floci nos oferece  e preparar nosso ambiente para os experimentos com o EKS.</p>
+<p>Porém, ao estudarmos para uma certificação por exemplo, precisamos realizar laboratórios com os diversos serviços dos provedores de nuvem públicas e esses experimentos no geral terão um custo. O pode ser um impedimento, dependo dos recursos utilzados nos experimentos.</p>
+<p>É neste cenário que ferramentas como o <a href="https://www.marcpires.dev" target="_blank" rel="noopener">Floci</a> brilham, pois ele possibilita que executemos localmente os principais serviços destes provedores, vamos olhar mais de perto que o Floci nos oferece  e preparar nosso ambiente para os experimentos com o EKS.</p>
 <h2>O que o Floci oferece ?</h2>
 <p>O Floci emula 68 serviços da AWS como <em>RDS</em>, <em>EKS</em>, <em>Route 53 </em>entre outros e não possui limitações como por exemplo a necessidade de se realizar logins ou necessitarmos de assinaturas ou chaves para sua utilização. Outro pontos interessante e que para diversos serviços como Lambda ele executa containers utilizando os runtimes reais da AWS e não um mock da resposta do serviço.</p>
 <h2>Preparando o ambiente</h2>
